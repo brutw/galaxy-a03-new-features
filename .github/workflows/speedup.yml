@@ -1,0 +1,28 @@
+name: Create New Branch 0.0.2
+
+on:
+  workflow_dispatch:  # Run manually from the Actions tab
+
+permissions:
+  contents: write  # Required to create branches and push
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: 0.0.1   # Base branch to copy from
+
+      - name: Create branch 0.0.2
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          # Create new branch based on 0.0.1
+          git checkout -b 0.0.2
+
+          # Push the new branch to GitHub
+          git push origin 0.0.2
