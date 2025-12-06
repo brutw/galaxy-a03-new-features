@@ -2,3 +2,5 @@
 a magisk module that aims to add some new features to the galaxy a03 (a035f/m)
 # check this
 [Samsung Additional Features 2.0 guide](https://github.com/ravindu644/Samsung_Additional_Features)
+# license
+module is on [The Unlicense](https://github.com/brutw/galaxy-a03-new-features/blob/0.0.1/LICENSE)
