@@ -30,5 +30,3 @@ debug.egl.hw=1
 debug.sf.allow_gpu_fallback=1
 ro.surface_flinger.has_wide_color_display=false
 ro.surface_flinger.has_HDR_display=false
-debug.hwui.renderer=skiagl
-debug.renderengine.backend=skiaglthreaded
