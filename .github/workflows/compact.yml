@@ -1,10 +1,10 @@
-name: 0.0.2 test
+name: master test
 
 on:
   push:
-    branches: [ "0.0.2" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "0.0.2" ]
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
