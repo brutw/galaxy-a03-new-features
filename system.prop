@@ -1,10 +1,5 @@
-debug.sf.latch_unsignaled=1
-sys.egl.enable_preload=true
-debug.sf.enable_hwc_vds=0
-debug.hwui.render_dirty_regions=false
 ro.minui.pixel_format=RGBX_8888
 dalvik.vm.appimageformat=zstd
 dalvik.vm.dex2oat-threads=4
 dalvik.vm.art-threads=4
-ro.hwui.layer_remove_biggest_first=true
-persist.sys.cpu.renderthreads=4
+persist.sys.cpu.renderthreads=2
