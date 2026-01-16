@@ -8,40 +8,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  zip_and_publish:
+  build_and_package:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Prepare module directory
-      - name: Prepare internal module directory
+      # Remove GitHub workflows directory
+      - name: Remove .github/workflows
         run: |
-          mkdir module-dir
-          cp -r ./* module-dir/
+          rm -rf .github/workflows
 
       # Create internal module zip
       - name: Create internal module zip
         run: |
-          cd module-dir
-          zip -r galaxy-a03-new-features-test.zip ./*
-          mv galaxy-a03-new-features-test.zip ../
+          zip -r galaxy-a03-new-features-test.zip . \
+            -x ".git/*" ".github/*"
 
-      # Prepare flashable directory
-      - name: Prepare flashable directory
+      # Create outer flashable zip containing only the internal zip
+      - name: Create flashable zip
         run: |
-          mkdir flash-dir
-          mv galaxy-a03-new-features-test.zip flash-dir/
-
-      # Create outer flashable zip
-      - name: Create outer flashable zip
-        run: |
-          cd flash-dir
+          mkdir flash
+          mv galaxy-a03-new-features-test.zip flash/
+          cd flash
           zip -r ../flash-module.zip galaxy-a03-new-features-test.zip
 
-      # Upload artifact
-      - name: Upload artifact
+      # Upload final flashable package
+      - name: Upload flashable artifact
         uses: actions/upload-artifact@v4
         with:
           name: flash-module
