@@ -1,6 +1,6 @@
 id=galaxya03newfeatures
 name=galaxy a03 new features
-version=0.0.2
-versionCode=002
+version=0.0.3
+versionCode=003
 author=brutw
-description=a magisk/apatch/ksu module that aims to add some new features to the galaxy a03 (a035f/m)
+description=a magisk/apatch/ksu module that aims to add some new features to the galaxy a03
