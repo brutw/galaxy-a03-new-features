@@ -8,7 +8,6 @@ debug.hwui.use_buffer_age=false
 debug.hwui.disable_vsync=false
 ro.hwui.use_gpu=true
 persist.sys.ui.hw=true
-debug.hwui.max_texture_size=4096
 debug.hwui.overdraw=false
 debug.hwui.profile=false
 persist.sys.cpu.renderthreads=2
