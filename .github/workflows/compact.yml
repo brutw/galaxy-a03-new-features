@@ -1,0 +1,26 @@
+name: 0.0.2 test
+
+on:
+  push:
+    branches: [ "0.0.2" ]
+  pull_request:
+    branches: [ "0.0.2" ]
+  workflow_dispatch:
+
+jobs:
+  zip_and_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Zip project
+        run: |
+          zip -r galaxy-a03-new-features-test.zip ./*
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: galaxy-a03-new-features-test
+          path: galaxy-a03-new-features-test.zip
