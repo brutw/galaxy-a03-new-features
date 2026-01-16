@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: extract-flash-module
-          path: extract-flash-module.zip
+          path: galaxy-a03-new-features-test.zip
