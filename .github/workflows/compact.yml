@@ -15,20 +15,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Create the internal module zip
+      # Create internal module zip
       - name: Create internal module zip
         run: |
           zip -r galaxy-a03-new-features-test.zip ./*
 
-      # Create the outer flashable zip
+      # Create outer flashable zip (fixed)
       - name: Create outer flashable zip
         run: |
           mkdir flash-temp
           mv galaxy-a03-new-features-test.zip flash-temp/
           cd flash-temp
-          zip -r ../flash-module.zip ./*
+          zip -r flash-module.zip galaxy-a03-new-features-test.zip
+          mv flash-module.zip ../
 
-      # Upload the flashable zip as artifact
+      # Upload artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
