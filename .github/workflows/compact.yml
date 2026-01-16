@@ -15,19 +15,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Prepare module directory
+      - name: Prepare internal module directory
+        run: |
+          mkdir module-dir
+          cp -r ./* module-dir/
+
       # Create internal module zip
       - name: Create internal module zip
         run: |
+          cd module-dir
           zip -r galaxy-a03-new-features-test.zip ./*
+          mv galaxy-a03-new-features-test.zip ../
 
-      # Create outer flashable zip (fixed)
+      # Prepare flashable directory
+      - name: Prepare flashable directory
+        run: |
+          mkdir flash-dir
+          mv galaxy-a03-new-features-test.zip flash-dir/
+
+      # Create outer flashable zip
       - name: Create outer flashable zip
         run: |
-          mkdir flash-temp
-          mv galaxy-a03-new-features-test.zip flash-temp/
-          cd flash-temp
-          zip -r flash-module.zip galaxy-a03-new-features-test.zip
-          mv flash-module.zip ../
+          cd flash-dir
+          zip -r ../flash-module.zip galaxy-a03-new-features-test.zip
 
       # Upload artifact
       - name: Upload artifact
