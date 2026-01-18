@@ -1,4 +1,4 @@
-name: master test
+name: master ci
 
 on:
   push:
@@ -17,10 +17,10 @@ jobs:
 
       - name: Zip project
         run: |
-          zip -r galaxy-a03-new-features-test.zip ./*
+          zip -r galaxy-a03-new-features-ci.zip ./*
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: extract-flash-module
-          path: galaxy-a03-new-features-test.zip
+          path: galaxy-a03-new-features-ci.zip
