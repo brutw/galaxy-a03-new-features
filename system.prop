@@ -1,2 +1,5 @@
 persist.sys.cpu.renderthreads=2
 ro.hwui.use_gpu=true
+debug.hwui.renderer=skiagl_threaded
+debug.renderengine.backend=skiaglthreaded
+renderthread.skia.reduceopstasksplitting=true
